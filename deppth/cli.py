@@ -36,7 +36,10 @@ def main():
   patch_parser.set_defaults(func=cli_patch)
 
   args = parser.parse_args()
-  args.func(args)
+  try:
+    args.func(args)
+  except AttributeError:
+    parser.error("too few arguments")
 
 def cli_list(args):
   path = args.path
