@@ -39,7 +39,9 @@ def main():
   try:
     args.func(args)
   except AttributeError:
-    parser.error("too few arguments")
+    parser.error("alrighty Josh. this sucker says there's too few arguments")
+    parser.print_help()
+    parser.exit()
 
 def cli_list(args):
   path = args.path
